@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tech Solutions Inc. - Our Team</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* Ana Renk ve Global Stiller */
+        :root {
+            --brand: #dc3545;
+            /* Corporate Red */
+            --muted: #6c757d;
+            --social-hover-color: #b02a37;
+            /* Koyu Kırmızı */
+        }
+
+        body {
+            background-color: #f5f5f5;
+            scroll-behavior: smooth;
+            padding-top: 58px;
+        }
+
+        /* Navbar Linklerine Geçiş Ekleme (Bootstrap'in varsayılanı zaten var, CSS ile güçlendiriyoruz) */
+        #mainNav .navbar-nav .nav-link {
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+        }
+
+        /* HERO Section */
+        .hero {
+            background: linear-gradient(90deg, rgba(220, 53, 69, 0.06), rgba(220, 53, 69, 0.03));
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+        }
+
+        .hero p.lead {
+            font-size: 1rem;
+            max-width: 85%;
+        }
+
+        /* Team Cards and Transitions (3D Lift/Shadow preserved) */
+        .team-card img {
+            object-fit: cover;
+            height: 220px;
+            width: 100%;
+            border-top-left-radius: var(--bs-border-radius);
+            border-top-right-radius: var(--bs-border-radius);
+        }
+
+        .team-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 1.25rem 3.5rem rgba(0, 0, 0, .175) !important;
+        }
+
+        .team-card .social-icons-row {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+        }
+
+        /* Sosyal İkonlara Renk ve Boyut Geçişi */
+        .social-btn {
+            text-decoration: none;
+            color: var(--brand);
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .social-btn:hover {
+            color: var(--social-hover-color);
+            transform: scale(1.1);
+            /* Hafif Büyüme Efekti */
+        }
+
+        /* Footer Stili ve Buton Etkileşimleri */
+        footer {
+            background-color: var(--brand);
+            color: white;
+            padding: 0;
+        }
+
+        .footer-content {
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-right .btn-light {
+            padding: 0.3rem 1.25rem;
+            font-size: 0.85rem;
+            border-radius: 50rem !important;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .footer-right .btn-light:hover {
+            background-color: var(--social-hover-color);
+            border-color: var(--social-hover-color);
+            color: white;
+        }
+
+        .social-btn-footer {
+            color: white !important;
+            transition: color 0.2s ease;
+        }
+
+        .social-btn-footer:hover {
+            color: #ccc !important;
+        }
+
+    
+        .section-heading-wrapper {
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .section-heading-wrapper h2,
+        .section-heading-wrapper h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-card {
+            margin-bottom: 2rem;
+
+        }
+
+        .section-card-body {
+            padding: 2rem;
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="56">
+
+    <header>
+        <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-danger shadow-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#top">
+                    <i class="bi bi-gear-fill me-2" style="font-size: 1.35rem; color: white;"></i>
+                    <span class="fw-bold" style="color:white;">Tech Solutions Inc.</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#top">Main Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a class="btn btn-sm btn-outline-light rounded-pill" href="#contact">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center text-md-start">
+                        <div class="d-inline-block border-bottom border-danger border-3 mb-2"></div>
+
+                        <h1 class="mb-2">Our Innovative Team</h1>
+                        <p class="lead text-muted mb-4 fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at
+                            nibh elementum imperdiet.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-center text-md-start">
+                        <a href="#team" class="btn btn-danger btn-sm rounded-pill shadow-sm">
+                            <i class="bi bi-arrow-down me-1"></i> See The Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-5 pt-0">
+        <div class="container">
+
+            <div class="section-heading-wrapper fade-in-section">
+                <h2 class="mb-0">Meet Our Expert Team</h2>
+                <div class="d-inline-block border-bottom border-danger border-2 mt-1" style="width: 100px;"></div>
+            </div>
+
+            <section id="team" aria-labelledby="team-heading" class="fade-in-section">
+
+                <div class="row g-4 mt-2">
+
+                    <article class="col-12 col-md-6 col-lg-4">
+                        <div class="card team-card h-100 shadow-sm">
+                            <img src="assets/man1.jpeg" class="card-img-top" alt="Mehmet Nurhan - CEO">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Mehmet Nurhan</h5>
+                                <span class="badge bg-danger mb-2"><i class="bi bi-person-workspace me-1"></i>CEO</span>
+                                </p>
+
+                                <div class="social-icons-row d-flex justify-content-center pt-2">
+                                    <a class="social-btn me-2" href="#" aria-label="Mehmet LinkedIn"><i
+                                            class="bi bi-linkedin fs-5"></i></a>
+                                    <a class="social-btn" href="#" aria-label="Mehmet Twitter"><i
+                                            class="bi bi-twitter fs-5"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-12 col-md-6 col-lg-4">
+                        <div class="card team-card h-100 shadow-sm">
+                            <img src="assets/man2.jpeg" class="card-img-top" alt="Ali Ozturk - CTO">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Ali Ozturk</h5>
+                                <span class="badge bg-danger mb-2"><i class="bi bi-cpu-fill me-1"></i>CTO</span>
+                                </p>
+
+                                <div class="social-icons-row d-flex justify-content-center pt-2">
+                                    <a class="social-btn me-2" href="#" aria-label="Ali GitHub"><i
+                                            class="bi bi-github fs-5"></i></a>
+                                    <a class="social-btn" href="#" aria-label="Ali Twitter"><i
+                                            class="bi bi-twitter fs-5"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-12 col-md-6 col-lg-4">
+                        <div class="card team-card h-100 shadow-sm">
+                            <img src="assets/woman.jpeg" class="card-img-top" alt="Ayşe Demir - Lead Designer">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Ayşe Demir</h5>
+                                <span class="badge bg-danger mb-2"><i class="bi bi-palette-fill me-1"></i>Lead
+                                    Designer</span>
+                                </p>
+
+                                <div class="social-icons-row d-flex justify-content-center pt-2">
+                                    <a class="social-btn me-2" href="#" aria-label="Ayşe Dribbble"><i
+                                            class="bi bi-dribbble fs-5"></i></a>
+                                    <a class="social-btn" href="#" aria-label="Ayşe Instagram"><i
+                                            class="bi bi-instagram fs-5"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="about" class="fade-in-section section-card">
+                <div class="card shadow-sm">
+                    <div class="card-body section-card-body">
+                        <div class="section-heading-wrapper p-0 m-0">
+                            <h2 class="mb-0">About Us</h2>
+                            <div class="d-inline-block border-bottom border-danger border-2 mt-1" style="width: 100px;">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-lg-8">
+                                <p class="text-muted fs-6">
+                                    Tech Solutions Inc. is a leading technology company specializing in **software
+                                    development, cloud computing, and robust cybersecurity solutions**. Our dedicated
+                                    team is passionate about delivering innovative and customer-centric products that
+                                    drive success.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="fade-in-section section-card">
+                <div class="card shadow-sm">
+                    <div class="card-body section-card-body">
+                        <div class="section-heading-wrapper p-0 m-0">
+                            <h3 class="mb-0">Get in Touch With Us</h3>
+                            <div class="d-inline-block border-bottom border-danger border-2 mt-1" style="width: 100px;">
+                            </div>
+                        </div>
+
+                        <p class="text-muted fs-6 mt-3">Have questions or want to start a project? Fill out the form
+                            below and our team will get back to you shortly.</p>
+
+                        <form id="contact-form" class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="email@example.com"
+                                    required>
+                            </div>
+                            <div class="col-12">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject"
+                                    placeholder="Project Inquiry, Support, etc." required>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" class="form-control" rows="5"
+                                    placeholder="Type your message here..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="mt-5">
+        <div class="container footer-content">
+            <div class="footer-left d-flex flex-column">
+                <strong class="mb-1">Tech Solutions Inc.</strong>
+                <span class="small">Copyright © <span id="year-footer"></span>. All rights reserved.</span>
+            </div>
+
+            <div class="footer-right d-flex align-items-center">
+                <a href="#" class="social-btn-footer me-3"><i class="bi bi-facebook fs-5"></i></a>
+                <a href="#" class="social-btn-footer me-3"><i class="bi bi-twitter fs-5"></i></a>
+                <a href="#" class="social-btn-footer me-4"><i class="bi bi-linkedin fs-5"></i></a>
+
+                <button type="submit" form="contact-form" class="btn btn-sm btn-light">
+                    Send Message <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('year-footer').textContent = new Date().getFullYear();
+
+        const contactForm = document.getElementById('contact-form');
+
+       
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Form submitted (demo). No actual backend connection.');
+            this.reset();
+        });
+
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        const navbarHeight = document.getElementById('mainNav').offsetHeight;
+        document.body.style.paddingTop = navbarHeight + 'px';
+    </script>
+</body>
+
+</html>
